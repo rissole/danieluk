@@ -7,5 +7,7 @@ Runs a webserver on your machine, people you allow can POST text to it, which is
 Usage
 --------
 `git clone https://github.com/defaultnamehere/danieluk.git`
+
 `chmod +x setup.sh`
+
 `./setup.sh`
