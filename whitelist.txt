@@ -1,0 +1,4 @@
+# Enter the LDAPs of Atlassians you want to be able to run remote text-to-speech on your computer here, one per line.
+# Leaving this file as-is will allow ANYONE to do this.
+ahogue
+briosa

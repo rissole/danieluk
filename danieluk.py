@@ -5,13 +5,16 @@ import socket
 from flask import *
 app = Flask(__name__)
 
-LOGFILE = "/Users/ahogue/gags.txt"
+LOGFILE = "recieved_gags.txt"
+WHITELISTFILE = "whitelist.txt"
+
+# Switch to True to send a random gag in response to each request.
+ENABLE_GAGS = False
+
 GAGS = ("Thanks for meming",
         "Your meme status has been updated from: memeduke to: memelord",
-        "ERROR 420: Request body did not contain enough memes",
-        "lol",
-        "top kek",
-        """ 
+        "ERROR 420: Request body clearly copypasta from /b/",
+        """
         __________
         < ayy lmao >
          ----------
@@ -23,22 +26,27 @@ GAGS = ("Thanks for meming",
         "Thank you for working with heart and balance",
         "Congratulations, you have now played as a meme",
         "ERROR 421: Request did not come from the Bay Area",
-        "Exit status 420",
         "<a href=\"http://gabegaming.com\">[HOT] CLICK HERE FOR MEMES [HOT]</a>",
-        "Thanks for visiting Mr. Magorium's Meme Emporium. More memes, more value.",
-        "[INFO] [talledLocalContainer] Gag recieved"
-
+        "Thanks for visiting Mr. Magorium's Meme Emporium. More memes, more value."
 )
 
 
+with open(WHITELISTFILE) as f:
+    allowed_ldaps = [line.strip() for line in f.readlines() if not line.startswith("#")]
+
 @app.route("/say", methods=["POST"])
 def say():
-    if not socket.gethostbyname("briosa") == request.remote_addr:
+    # Get rekt by glibc vulnerability.
+    if not any(socket.gethostbyname(ldap) == request.remote_addr for ldap in allowed_ldaps):
         return "Sorry based employees only"
+
     subprocess.call(["say", request.form["message"]])
     with open(LOGFILE, 'a') as f:
         f.write(str(datetime.datetime.now()) + "\t" + request.form["message"] + "\n");
 
-    return random.choice(GAGS)
+    if ENABLE_GAGS:
+        return random.choice(GAGS)
+    return "Gag recieved."
 
-app.run(host="0.0.0.0")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5699)
