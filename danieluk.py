@@ -42,7 +42,9 @@ def say():
 
     subprocess.call(["say", request.form["message"]])
     with open(LOGFILE, 'a') as f:
-        f.write(str(datetime.datetime.now()) + "\t" + request.form["message"] + "\n");
+        # TODO log hostname as well.
+        f.write("\t".join(str(datetime.datetime.now()), str(request.remote_addr), request.form["message"]))
+        f.write("\n")
 
     if ENABLE_GAGS:
         return random.choice(GAGS)

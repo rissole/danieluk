@@ -15,6 +15,9 @@ Usage
 `./start.sh`
 
 
+To send a message to everyone in your whitelist ("memecast radio"):
+`./broadcast.sh <your message>`
+
 BY THE WAY
 -----------
 This isn't very secure. Realistically, anyone on the same network as you can send you text-to-speech. Sorry about that. Security is hard.
