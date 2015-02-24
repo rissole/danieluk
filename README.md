@@ -8,6 +8,8 @@ Usage
 --------
 `git clone https://github.com/defaultnamehere/danieluk.git`
 
-`chmod +x setup.sh`
+`chmod +x setup.sh start.sh`
 
 `./setup.sh`
+
+`./start.sh`
