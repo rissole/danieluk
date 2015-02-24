@@ -13,3 +13,8 @@ Usage
 `./setup.sh`
 
 `./start.sh`
+
+
+BY THE WAY
+-----------
+This isn't very secure. Realistically, anyone on the same network as you can send you text-to-speech. Sorry about that. Security is hard.
