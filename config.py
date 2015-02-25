@@ -8,7 +8,7 @@ if __name__ == "__main__":
         f.write("""
 # Enter the LDAPs of Atlassians you want to be able to run remote text-to-speech on your computer here, one per line.
 # Leaving this file as-is will allow ANYONE to do this.
-"""
+""")
     if do_whitelist:
         print("Enter the LDAPs (e.g. 'ahogue') of the people you want to give access to your Remote Gag Execution framework into 'whitelist.txt', one per line.")
         print("Leaving the whitelist blank will let ANYONE connect.")
