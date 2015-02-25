@@ -78,6 +78,7 @@ def do_action(cmd):
 
 def cli():
     try:
+        help()
         while True:
             do_action(raw_input("> "))
             print
