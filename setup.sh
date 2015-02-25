@@ -6,6 +6,7 @@ echo "Installing dependencies....";
 echo "Just type your sudo password, it's fiiiiiiiiiiiiine....";
 sudo easy_install pip;
 sudo pip install flask;
+sudo pip install requests;
 echo
 echo
 echo
