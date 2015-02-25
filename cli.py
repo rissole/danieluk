@@ -66,10 +66,10 @@ def do_action(cmd):
     parts = cmd.split()
     if parts[0] == "online" and len(parts) <= 2:
         online(parts[1] if len(parts) == 2 else None)
-    elif parts[0] == "say" and len(parts) == 3:
-        say(parts[1], parts[2])
-    elif parts[0] == "broadcast" and len(parts) == 2:
-        broadcast(parts[1])
+    elif parts[0] == "say":
+        say(parts[1], " ".join(parts[2:]))
+    elif parts[0] == "broadcast":
+        broadcast(" ".join(parts[1:]))
     elif parts[0] == "help" and len(parts) == 1:
         help()
     else:
