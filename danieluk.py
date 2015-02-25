@@ -34,13 +34,21 @@ GAGS = ("Thanks for meming",
 with open(WHITELISTFILE) as f:
     allowed_ldaps = [line.strip() for line in f.readlines() if not line.startswith("#")]
 
+@app.route("/online", methods=["GET"])
+def online():
+    return "ye m9"
+
 @app.route("/say", methods=["POST"])
 def say():
     # Get rekt by glibc vulnerability.
-    if not any(socket.gethostbyname(ldap) == request.remote_addr for ldap in allowed_ldaps):
+    if not any(socket.gethostbyname(ldap) == request.remote_addr for ldap in allowed_ldaps) and allowed_ldaps:
         return "Sorry based employees only"
 
-    subprocess.call(["say", request.form["message"]])
+    msg = request.form["message"]
+    subprocess.call(["say", msg])
+
+    print "%s - %s" % (request.remote_addr, msg)
+
     with open(LOGFILE, 'a') as f:
         # TODO log hostname as well.
         f.write("\t".join(str(datetime.datetime.now()), str(request.remote_addr), request.form["message"]))

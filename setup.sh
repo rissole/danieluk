@@ -1,4 +1,4 @@
-chmod +x send.sh
+chmod +x *.sh
 python config.py
 echo
 echo
@@ -11,3 +11,5 @@ echo
 echo
 echo "Done!"
 echo "RECOMMENDED: Settings > Dictation and Speech > System Voice > Customze > UK > Daniel"
+echo
+echo "Run ./start.sh to start the server so people can contact you"
