@@ -4,7 +4,7 @@ if __name__ == "__main__":
     do_whitelist = True if raw_input("Do you want anyone on your network to be able to make your computer run arbitrary text-to-speech commands at any time? (Y / N): ").lower() == "n" else False
     print("Okay.")
 
-    with open("whitelist.txt") as f:
+    with open("whitelist.txt", "w") as f:
         f.write("""
 # Enter the LDAPs of Atlassians you want to be able to run remote text-to-speech on your computer here, one per line.
 # Leaving this file as-is will allow ANYONE to do this.
