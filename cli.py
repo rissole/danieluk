@@ -17,7 +17,7 @@ def online(user=None):
         try:
             if requests.get("http://%s:5699/online" % memer, timeout=ONLINE_TIMEOUT).status_code == 200:
                 online_memers.append(memer)
-        except requests.exceptions.ConnectionError:
+        except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout) as e:
             pass
 
     if user is not None:
