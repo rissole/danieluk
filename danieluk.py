@@ -51,7 +51,7 @@ def say():
 
     with open(LOGFILE, 'a') as f:
         # TODO log hostname as well.
-        f.write("\t".join(str(datetime.datetime.now()), str(request.remote_addr), request.form["message"]))
+        f.write("\t".join((str(datetime.datetime.now()), str(request.remote_addr), request.form["message"])))
         f.write("\n")
 
     if ENABLE_GAGS:
