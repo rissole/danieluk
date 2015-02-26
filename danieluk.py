@@ -56,7 +56,7 @@ def say():
 
     if ENABLE_GAGS:
         return random.choice(GAGS)
-    return "Gag recieved."
+    return "Gag received."
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5699)
