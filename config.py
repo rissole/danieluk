@@ -5,8 +5,7 @@ if __name__ == "__main__":
     print("Okay.")
 
     with open("whitelist.txt", "w") as f:
-        f.write("""
-# Enter the LDAPs of Atlassians you want to be able to run remote text-to-speech on your computer here, one per line.
+        f.write("""# Enter the LDAPs of Atlassians you want to be able to run remote text-to-speech on your computer here, one per line.
 # Leaving this file as-is will allow ANYONE to do this.
 """)
     if do_whitelist:
